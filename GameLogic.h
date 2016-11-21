@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "NetworkService.h"
 #include "PacketInfo.h"
 #include "SMsg.h"
@@ -7,6 +6,9 @@
 #include "UserManager.h"
 #include <conio.h>
 #include <map>
+
+#include "json_loader.h"
+#include "stage_enemy_info.h"
 
 class Obj : public NetStreamable
 {
@@ -42,6 +44,9 @@ public:
 		auto tcp_acceptor = service.new_acceptor<User>(9999, &UserMgr);
 
 
+		// test -.-;; zz
+		//stage_enemy_info::getSingleton()->load();
+
 		service.Run(8);
 		while (true)
 		{
@@ -53,16 +58,7 @@ public:
 		}
 
 		service.Join();
+		//stage_enemy_info::getSingleton()->releaseSingleton();
+
 	}
-	
-	void SetObjInt(unsigned index, boost::any objData)
-	{
-		m_vecObjList[index].ObjData = objData;
-	}
-	const std::vector<ObjInfo>& GetvecObjList(){ return m_vecObjList; }
-public:
-	void AddObjInfo(ObjInfo ObjInfo){ m_vecObjList.push_back(ObjInfo); }
-	size_t GetObjListSize(){ return m_vecObjList.size(); }
-private:
-	std::vector<ObjInfo> m_vecObjList;
 };

@@ -14,11 +14,9 @@ public:
 	{
 		m_pSessionMgr->on_session_disconnected(this->shared_from_this());
 	}
-	void SendObjList();
-	void AddUser();
-	void AddPlayerStatObjInfo(const SMsgRecv& msg);
-	void AddPlayerPosObjInfo(const SMsgRecv& msg);
 private:
+	bool add_user();
+	bool send_stage_info();
 	SessionManager<User>* m_pSessionMgr;
 };
 

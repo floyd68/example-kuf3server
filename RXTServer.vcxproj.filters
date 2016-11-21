@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{39562cf9-8c8d-4993-a735-bef821a8512c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -36,19 +39,10 @@
     <ClInclude Include="NetworkService.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SMsg.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SNetBuf.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="PacketInfo.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameLogic.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SingletonBase.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="UserManager.h">
@@ -56,6 +50,15 @@
     </ClInclude>
     <ClInclude Include="User.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_enemy_info.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="svr_logger.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="data_mgr.h">
+      <Filter>Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,17 +68,20 @@
     <ClCompile Include="RXTServer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SMsg.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="SNetBuf.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="GameLogic.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="User.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_enemy_info.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="svr_logger.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="data_mgr.cpp">
+      <Filter>Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
