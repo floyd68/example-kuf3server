@@ -38,7 +38,7 @@ public:
 		pSession->set_active(true);
 		m_listSessionsActive.push_back(pSession);
 		pSession->socket().get_io_service().post([pSession]() { pSession->start_receive(); });
-		SMsgSend msg(static_cast<unsigned short>(PACKET_ID::PACKET_IS_LOGIN_REQ));
+		SMsgSend msg(static_cast<unsigned short>(KUF3PACKET::S2C_CONNECTED));
 		pSession->start_send(msg);
 
 	}
@@ -63,6 +63,7 @@ public:
 	virtual void BroadCast(UserPtr, SMsgSend& msg) = 0;
 	//virtual void AddStatObjInfo(UserPtr, const SMsgRecv& msg) = 0;
 	virtual void SendIsHost(UserPtr pSession) = 0;
+	virtual void send(UserPtr, SMsgSend& msg) = 0;
 	std::list < typename T::ptr > m_listSessionsActive;
 	std::list < typename T::ptr > m_listSessionsInactive;
 

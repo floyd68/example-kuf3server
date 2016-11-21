@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PacketInfo.h"
+#include "kuf3packet_header.h"
 #include "User.h"
 
 class UserManager :public SessionManager<User>
@@ -24,14 +24,6 @@ public:
 			Session->start_send(msg);
 		}
 	}
-	//virtual void AddStatObjInfo(UserPtr pSession, const SMsgRecv& msg) override
-	//{
-	//	unsigned EntityID;
-	//	msg >> EntityID;
-	//	PlayerData stPlayerData = boost::any_cast<PlayerData>(m_vecObjList[EntityID].ObjData);
-	//	msg >> stPlayerData.bAttUp >> stPlayerData.eAttType >> stPlayerData.fCurHp >> stPlayerData.fHp >> stPlayerData.fAtt >> stPlayerData.fAttUpTime >> stPlayerData.bTempInvincible >> stPlayerData.fTempInvincibleTime >> stPlayerData.bIsInvincible;
-	//	m_vecObjList[EntityID].ObjData = stPlayerData;
-	//}
 	virtual void SendIsHost(UserPtr pSession)override
 	{
 		SMsgSend msg(static_cast<unsigned short>(PACKET_ID::PACKET_IS_HOST));
@@ -44,6 +36,12 @@ public:
 			msg << false;
 		pSession->start_send(msg);
 	}
+
+	virtual void send(UserPtr pSession, SMsgSend& msg) override
+	{
+		pSession->start_send(msg);
+	}
+
 private:
 	std::list<UserPtr> m_liUserList;
 };
