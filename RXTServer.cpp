@@ -9,9 +9,17 @@ int main()
 {
 	srand((unsigned)time(NULL));
 
+	std::wcout.imbue(std::locale("kor"));
+	std::wcin.imbue(std::locale("kor"));
+
+	svr_logger::create(L"log", L"log");
+
+	log_info("test %d ÇÑ±Û!", 1);
+
 	GameLogic::getSingleton()->Init();
 	GameLogic::getSingleton()->releaseSingleton();
 	
-    return 0;
+	svr_logger::destroy();
+	return 0;
 }
 

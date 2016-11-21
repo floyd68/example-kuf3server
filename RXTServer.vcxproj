@@ -28,7 +28,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -41,13 +41,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -71,6 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -88,11 +90,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);ASIO_STANDALONE</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\BLUESIDE\ps4\KUF3Server\asio-1.11.0\include;..\common\boost_1_61_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>asio-1.11.0\include;..\example-common\boost_1_61_0;..\example-common\kuf3common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kuf3common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,25 +155,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
+    <ClInclude Include="data_mgr.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="NetworkService.h" />
     <ClInclude Include="PacketInfo.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionManager.h" />
-    <ClInclude Include="SingletonBase.h" />
-    <ClInclude Include="SMsg.h" />
-    <ClInclude Include="SNetBuf.h" />
+    <ClInclude Include="stage_enemy_info.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="svr_logger.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="data_mgr.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="RXTServer.cpp" />
-    <ClCompile Include="SMsg.cpp" />
-    <ClCompile Include="SNetBuf.cpp" />
+    <ClCompile Include="stage_enemy_info.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="svr_logger.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
