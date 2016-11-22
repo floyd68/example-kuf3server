@@ -60,6 +60,9 @@
     <ClInclude Include="data_mgr.h">
       <Filter>Data</Filter>
     </ClInclude>
+    <ClInclude Include="load_json_files.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="data_mgr.cpp">
       <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="load_json_files.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

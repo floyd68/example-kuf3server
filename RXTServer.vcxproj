@@ -157,6 +157,7 @@
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="data_mgr.h" />
     <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="load_json_files.h" />
     <ClInclude Include="NetworkService.h" />
     <ClInclude Include="PacketInfo.h" />
     <ClInclude Include="Session.h" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <ClCompile Include="data_mgr.cpp" />
     <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="load_json_files.cpp" />
     <ClCompile Include="RXTServer.cpp" />
     <ClCompile Include="stage_enemy_info.cpp" />
     <ClCompile Include="stdafx.cpp" />
