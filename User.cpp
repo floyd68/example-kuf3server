@@ -5,6 +5,8 @@
 #include "kuf3packet_header.h"
 #include "stage_enemy_info.h"
 
+#include "game_logic_mgr.h" //test - DCAT
+
 #define SEND(x) m_pSessionMgr->send(this->shared_from_this(), x);
 
 void User::handle_net_msg(const SMsgRecv& msg)
@@ -18,6 +20,8 @@ void User::handle_net_msg(const SMsgRecv& msg)
 		break;
 	case KUF3PACKET::C2S_READY_STAGE_REQ:
 		send_stage_info();
+		break;
+	case KUF3PACKET::C2S_START_STAGE_REQ:
 		break;
 	default:
 		m_pSessionMgr->BroadCast(this->shared_from_this(), sendMsg);
@@ -39,7 +43,7 @@ bool User::send_stage_info()
 
 	//const auto& abc = xxx.get_date();
 
-	msg << 1 << 2 << 3;
+	//msg << game_logic_mgr::getSingleton()->get_stage_info();
 
 
 

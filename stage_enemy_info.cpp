@@ -2,6 +2,7 @@
 #include "json_loader.h"
 #include "stage_enemy_info.h"
 #include "KUF3Math.h"
+#include "game_logic_mgr.h"
 
 stage_enemy_info::stage_enemy_info()
 {

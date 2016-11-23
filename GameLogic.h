@@ -5,10 +5,11 @@
 #include "SingletonBase.h"
 #include "UserManager.h"
 #include <conio.h>
-#include <map>
+//#include <map>  //필요없는 헤어 DCAT
 
 #include "json_loader.h"
-#include "stage_enemy_info.h"
+//#include "stage_enemy_info.h"
+#include "game_logic_mgr.h"
 
 class Obj : public NetStreamable
 {
@@ -23,7 +24,6 @@ public:
 	};
 };
 
-
 class GameLogic : public CSingletonBase<GameLogic>
 {
 public:
@@ -32,6 +32,9 @@ public:
 public:
 	void Init()
 	{
+		game_logic_mgr::getSingleton()->Initialize(); //스테이지 관련 정보 로드 DCAT
+
+		//연결관련 부분은 따로 빼면 좋겠음..DCAT
 		NetworkService service;
 
 		std::stringstream ss;
@@ -42,7 +45,6 @@ public:
 		UserManager UserMgr(service.get_io_service(), 100, true);
 
 		auto tcp_acceptor = service.new_acceptor<User>(9999, &UserMgr);
-
 
 		// test -.-;; zz
 		//stage_enemy_info::getSingleton()->load();
@@ -58,6 +60,8 @@ public:
 		}
 
 		service.Join();
+		game_logic_mgr::getSingleton()->releaseSingleton();
+
 		//stage_enemy_info::getSingleton()->releaseSingleton();
 
 	}

@@ -60,6 +60,9 @@
     <ClInclude Include="data_mgr.h">
       <Filter>Data</Filter>
     </ClInclude>
+    <ClInclude Include="game_logic_mgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="data_mgr.cpp">
       <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="game_logic_mgr.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

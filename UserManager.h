@@ -26,15 +26,15 @@ public:
 	}
 	virtual void SendIsHost(UserPtr pSession)override
 	{
-		SMsgSend msg(static_cast<unsigned short>(PACKET_ID::PACKET_IS_HOST));
-		if (m_liUserList.empty())
-		{
-			pSession->SetHost(true);
-			msg << true;
-		}
-		else
-			msg << false;
-		pSession->start_send(msg);
+		//SMsgSend msg(static_cast<unsigned short>(PACKET_ID::PACKET_IS_HOST));
+		//if (m_liUserList.empty())
+		//{
+		//	pSession->SetHost(true);
+		//	msg << true;
+		//}
+		//else
+		//	msg << false;
+		//pSession->start_send(msg);  //∫ÙµÂ∏¶ ¿ß«ÿ ¿·Ω√ ∏∑æ∆µ“ DCAT
 	}
 
 	virtual void send(UserPtr pSession, SMsgSend& msg) override
