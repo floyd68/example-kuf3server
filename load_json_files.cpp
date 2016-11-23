@@ -1,27 +1,31 @@
+#include "stdafx.h"
 #include "load_json_files.h"
 #include <iostream>
 
 load_json_files::load_json_files(const wchar_t* directory_name)
 	: ifstream_file(directory_name)
 {
-	/* test
-	vec_files vec;
-	read_all(vec);
+	vec_files json_files;
+	read_all(json_files);
 
-	for (auto v : vec)
+	for (auto v : json_files)
 	{
-		wcout << L"file name : " << v.first << endl;
 		for (auto k : v.second)
 		{
-			wcout << k << endl;
+			log_info("load file : %s", k);
+			if (create_component(k.c_str()) == false)
+			{
+				log_error("failed to create componet file. name : %s", k);
+			}
 		}
 	}
-
-	vec 담긴 정보로 엔티티 불러와주면됨..........
-	*/
 }
-
 
 load_json_files::~load_json_files()
 {
+}
+
+bool load_json_files::create_component(const wchar_t* file_name)
+{
+	return true;
 }
