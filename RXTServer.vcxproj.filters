@@ -1,93 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Data">
-      <UniqueIdentifier>{39562cf9-8c8d-4993-a735-bef821a8512c}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="data_mgr.cpp" />
+    <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="game_logic_mgr.cpp" />
+    <ClCompile Include="load_json_files.cpp" />
+    <ClCompile Include="RXTServer.cpp" />
+    <ClCompile Include="stage_enemy_info.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="svr_logger.cpp" />
+    <ClCompile Include="User.cpp" />
+    <ClCompile Include="entity_factory.cpp" />
+    <ClCompile Include="obj_mgr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Acceptor.h" />
+    <ClInclude Include="data_mgr.h" />
+    <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="game_logic_mgr.h" />
+    <ClInclude Include="load_json_files.h" />
+    <ClInclude Include="NetworkService.h" />
+    <ClInclude Include="PacketInfo.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionManager.h" />
+    <ClInclude Include="stage_enemy_info.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="svr_logger.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="UserManager.h" />
+    <ClInclude Include="component_base.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="entity_factory.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="obj_mgr.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Session.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Acceptor.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SessionManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkService.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketInfo.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLogic.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="UserManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="User.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="stage_enemy_info.h">
-      <Filter>Data</Filter>
-    </ClInclude>
-    <ClInclude Include="svr_logger.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="data_mgr.h">
-      <Filter>Data</Filter>
-    </ClInclude>
-    <ClInclude Include="game_logic_mgr.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="RXTServer.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLogic.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="stage_enemy_info.cpp">
-      <Filter>Data</Filter>
-    </ClCompile>
-    <ClCompile Include="svr_logger.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="data_mgr.cpp">
-      <Filter>Data</Filter>
-    </ClCompile>
-    <ClCompile Include="game_logic_mgr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <Filter Include="Component">
+      <UniqueIdentifier>{e0af93f2-2270-4185-b790-4ab53dffca24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

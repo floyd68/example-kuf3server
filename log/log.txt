@@ -1,1 +1,3 @@
 [info][19:03:15:846][17][main] test 1 한글!
+[info][22:13:11:505][19][main] test 1 한글!
+[info][22:13:11:512][27][load_json_files::load] load file : [info][22:13:17:578][19][main] test 1 한글!

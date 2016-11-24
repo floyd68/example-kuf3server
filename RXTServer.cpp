@@ -5,6 +5,8 @@
 #include "GameLogic.h"
 
 
+#include "load_json_files.h"
+
 int main()
 {
 	srand((unsigned)time(NULL));
@@ -15,7 +17,11 @@ int main()
 	svr_logger::create(L"log", L"log");
 
 	log_info("test %d ÇÑ±Û!", 1);
+	load_json_files iff(L"svr_entity");
+	iff.load();
 
+	stage_enemy_info test;
+	test.load();
 	GameLogic::getSingleton()->Init();
 	GameLogic::getSingleton()->releaseSingleton();
 	

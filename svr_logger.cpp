@@ -1,4 +1,5 @@
 #include "svr_logger.h"
+#include "stdafx.h"
 
 svr_logger* svr_logger::_svr_logger = nullptr;
 

@@ -8,5 +8,7 @@ public:
 
 	void init();
 	bool load();
+
+	vector<string> vec_entity;
 };
 

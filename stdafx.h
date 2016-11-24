@@ -22,9 +22,10 @@
 
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.
 
+#include <memory>
+
 // pos f
 #include <d2d1.h>
-
 
 // stl
 #include <iostream>
@@ -33,5 +34,16 @@
 
 using namespace std;
 
-
+// 아래에서 필요없는 헤더 제거하기 DCAT
 #include "svr_logger.h"
+
+#include <crtdbg.h>
+#include <d2d1.h>
+#include <dwrite.h>
+#include <deque>
+#include "boost/any.hpp"
+#include "rapidjson/document.h"
+#include "rapidjson/filereadstream.h"
+#pragma comment(lib, "d2d1.lib")
+#pragma  comment(lib, "dwrite.lib")
+#pragma comment(lib, "Ws2_32.lib")

@@ -4,6 +4,7 @@
 
 void game_logic_mgr::Initialize()
 {
+	load_file.load();
 	stage_info.load();
 }
 
@@ -16,6 +17,6 @@ void game_logic_mgr::CreateEnemy()
 {
 	for (auto enemy : get_stage_info()[m_iStageLv][m_iWave])
 	{
-		//CreateObjectMsg(enemy.strEnemyType, enemy.tPos);
+		//CreateObject(enemy.strEnemyType, enemy.tPos);
 	}
 }

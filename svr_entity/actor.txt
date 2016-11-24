@@ -1,0 +1,11 @@
+Player
+OtherPlayer
+Bat
+Skeleton
+Zombi
+Ghost
+Mushroom
+Mage
+Goblin
+Minota
+Dragon

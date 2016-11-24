@@ -1,0 +1,8 @@
+Speed
+Hp
+Attack
+TriCell
+FourCell
+Repier
+Shotgun
+Rifle

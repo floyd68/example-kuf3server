@@ -85,8 +85,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);ASIO_STANDALONE</PreprocessorDefinitions>
@@ -155,10 +154,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
+    <ClInclude Include="component_base.h" />
     <ClInclude Include="data_mgr.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="entity_factory.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="game_logic_mgr.h" />
+    <ClInclude Include="load_json_files.h" />
     <ClInclude Include="NetworkService.h" />
+    <ClInclude Include="obj_mgr.h" />
     <ClInclude Include="PacketInfo.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionManager.h" />
@@ -171,11 +175,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_mgr.cpp" />
+    <ClCompile Include="entity_factory.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="game_logic_mgr.cpp" />
+    <ClCompile Include="load_json_files.cpp" />
+    <ClCompile Include="obj_mgr.cpp" />
     <ClCompile Include="RXTServer.cpp" />
     <ClCompile Include="stage_enemy_info.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="svr_logger.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
