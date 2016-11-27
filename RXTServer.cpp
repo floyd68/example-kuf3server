@@ -1,4 +1,4 @@
-// RXTServer.cpp : ÄÜ¼Ö ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ ÁøÀÔÁ¡À» Á¤ÀÇÇÕ´Ï´Ù.
+// RXTServer.cpp : ì½˜ì†” ì‘ìš© í”„ë¡œê·¸ëž¨ì— ëŒ€í•œ ì§„ìž…ì ì„ ì •ì˜í•©ë‹ˆë‹¤.
 //
 
 #include "stdafx.h"
@@ -16,14 +16,18 @@ int main()
 
 	svr_logger::create(L"log", L"log");
 
-	log_info("test %d ÇÑ±Û!", 1);
+	log_info("test %d í•œê¸€!", 1);
 	load_json_files iff(L"svr_entity");
 	iff.load();
 
 	stage_enemy_info test;
 	test.load();
+	
 	GameLogic::getSingleton()->Init();
-	GameLogic::getSingleton()->releaseSingleton();
+	// by floyd
+	// GameLogic ë§¤ë‹ˆì €ì˜ ì´ˆê¸°í™”, ì‹¤ì œ ë™ìž‘, ë§ˆë¬´ë¦¬ êµ¬ë¶„
+	GameLogic::getSingleton()->Run();
+	GameLogic::getSingleton()->Destroy();
 	
 	svr_logger::destroy();
 	return 0;
