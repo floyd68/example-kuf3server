@@ -16,12 +16,7 @@ int main()
 
 	svr_logger::create(L"log", L"log");
 
-	log_info("test %d 한글!", 1);
-	load_json_files iff(L"svr_entity");
-	iff.load();
-
-	stage_enemy_info test;
-	test.load();
+	resource_mgr::getSingleton()->Initialize(); //스테이지 관련 정보 로드 DCAT
 	
 	GameLogic::getSingleton()->Init();
 	// by floyd
@@ -29,6 +24,8 @@ int main()
 	GameLogic::getSingleton()->Run();
 	GameLogic::getSingleton()->Destroy();
 	
+	resource_mgr::getSingleton()->releaseSingleton();
+
 	svr_logger::destroy();
 	return 0;
 }

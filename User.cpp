@@ -5,7 +5,7 @@
 #include "kuf3packet_header.h"
 #include "stage_enemy_info.h"
 
-#include "game_logic_mgr.h" //test - DCAT
+#include "resource_mgr.h" //test - DCAT
 
 #define SEND(x) m_pSessionMgr->send(this->shared_from_this(), x);
 
@@ -43,7 +43,7 @@ bool User::send_stage_info()
 
 	//const auto& abc = xxx.get_date();
 
-	//msg << game_logic_mgr::getSingleton()->get_stage_info();
+	//msg << resource_mgr::getSingleton()->get_stage_info();
 
 
 
