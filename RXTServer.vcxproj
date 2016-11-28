@@ -159,7 +159,9 @@
     <ClInclude Include="entity.h" />
     <ClInclude Include="entity_factory.h" />
     <ClInclude Include="GameLogic.h" />
-    <ClInclude Include="game_logic_mgr.h" />
+    <ClInclude Include="game_room.h" />
+    <ClInclude Include="game_room_mgr.h" />
+    <ClInclude Include="resource_mgr.h" />
     <ClInclude Include="load_json_files.h" />
     <ClInclude Include="NetworkService.h" />
     <ClInclude Include="obj_mgr.h" />
@@ -177,7 +179,9 @@
     <ClCompile Include="data_mgr.cpp" />
     <ClCompile Include="entity_factory.cpp" />
     <ClCompile Include="GameLogic.cpp" />
-    <ClCompile Include="game_logic_mgr.cpp" />
+    <ClCompile Include="game_room.cpp" />
+    <ClCompile Include="game_room_mgr.cpp" />
+    <ClCompile Include="resource_mgr.cpp" />
     <ClCompile Include="load_json_files.cpp" />
     <ClCompile Include="obj_mgr.cpp" />
     <ClCompile Include="RXTServer.cpp" />

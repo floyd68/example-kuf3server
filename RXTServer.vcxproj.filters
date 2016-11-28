@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="data_mgr.cpp" />
     <ClCompile Include="GameLogic.cpp" />
-    <ClCompile Include="game_logic_mgr.cpp" />
     <ClCompile Include="load_json_files.cpp" />
     <ClCompile Include="RXTServer.cpp" />
     <ClCompile Include="stage_enemy_info.cpp" />
@@ -12,12 +11,14 @@
     <ClCompile Include="User.cpp" />
     <ClCompile Include="entity_factory.cpp" />
     <ClCompile Include="obj_mgr.cpp" />
+    <ClCompile Include="resource_mgr.cpp" />
+    <ClCompile Include="game_room_mgr.cpp" />
+    <ClCompile Include="game_room.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="data_mgr.h" />
     <ClInclude Include="GameLogic.h" />
-    <ClInclude Include="game_logic_mgr.h" />
     <ClInclude Include="load_json_files.h" />
     <ClInclude Include="NetworkService.h" />
     <ClInclude Include="PacketInfo.h" />
@@ -35,6 +36,9 @@
     <ClInclude Include="entity_factory.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="obj_mgr.h" />
+    <ClInclude Include="resource_mgr.h" />
+    <ClInclude Include="game_room_mgr.h" />
+    <ClInclude Include="game_room.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

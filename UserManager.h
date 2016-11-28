@@ -3,11 +3,11 @@
 #include "kuf3packet_header.h"
 #include "User.h"
 
-class UserManager :public SessionManager<User>
+class UserManager : public SessionManager<User>
 {
 public:
 	UserManager(asio::io_service& service, int nInitial, bool bGrow)
-		:SessionManager<User>(service, nInitial, bGrow){}
+		: SessionManager<User>(service, nInitial, bGrow){}
 	
 public:
 	virtual void AddUserList(UserPtr pSession) override
@@ -42,7 +42,9 @@ public:
 		pSession->start_send(msg);
 	}
 
+	int get_user_ptr(int user_no) { return 0; } // todo : 작업해야함.
 private:
 	std::list<UserPtr> m_liUserList;
+	// map<int, UserPtr> map_User;
 };
 
