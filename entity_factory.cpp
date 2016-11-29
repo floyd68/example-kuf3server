@@ -101,36 +101,27 @@ EntityPtr EntityFactory::CreateEntity(const std::string& strName)
 {
 	EntityPtr pEntity = std::make_shared<CEntity>();
 
-	//size_t uObjSize = CObjectMgr::getSingleton()->GetvecObjSize() + CObjectMgr::getSingleton()->GetvecAddObjSize();
+	size_t uObjSize = CObjectMgr::getSingleton()->GetvecObjSize() + CObjectMgr::getSingleton()->GetvecAddObjSize();
 
-	//pEntity->SetEntityID(uObjSize);
+	pEntity->SetEntityID(uObjSize);
 
-	//auto iter = m_mapComponentStruct.find(strName);
-	//if (iter == m_mapComponentStruct.end())
-	//	return nullptr;
+	auto iter = m_mapComponentStruct.find(strName);
+	if (iter == m_mapComponentStruct.end())
+		return nullptr;
 
-	//auto entityObjTypeIter = s_mapEntityObjTypeTable.find(strName);
+	auto entityObjTypeIter = s_mapEntityObjTypeTable.find(strName);
 
-	//if (entityObjTypeIter != s_mapEntityObjTypeTable.end())
-	//	pEntity->SetObjType(entityObjTypeIter->second);
+	if (entityObjTypeIter != s_mapEntityObjTypeTable.end())
+		pEntity->SetObjType(entityObjTypeIter->second);
 
-	//const std::vector<ComsIDAndInitVal>& EntityDef = iter->second;
+	auto strAttrIter = s_EntityStrAttrTable.find(strName);
+	if (strAttrIter == s_EntityStrAttrTable.end())
+		return nullptr;
 
-	//for (auto ComsIDAndValue : EntityDef)
-	//{
-	//	auto it = s_mapCompCreator.find(ComsIDAndValue.strComID);
-	//	if (it != s_mapCompCreator.end())
-	//		pEntity->InsertComponent(ComsIDAndValue.strComID, it->second(pEntity, ComsIDAndValue.InitVal));
-	//}
-
-	//auto strAttrIter = s_EntityStrAttrTable.find(strName);
-	//if (strAttrIter == s_EntityStrAttrTable.end())
-	//	return nullptr;
-
-	//for (auto strAttr : strAttrIter->second)
-	//{
-	//	pEntity->SetAttr(strAttr.first, strAttr.second);
-	//}
+	for (auto strAttr : strAttrIter->second)
+	{
+		pEntity->SetAttr(strAttr.first, strAttr.second);
+	}
 
 	return pEntity;
 }
