@@ -3,25 +3,45 @@
 #include "kuf3packet_header.h"
 #include "User.h"
 
+class UserManager;
+typedef std::shared_ptr<UserManager> UserMgrPtr;
 class UserManager : public SessionManager<User>
 {
 public:
 	UserManager(asio::io_service& service, int nInitial, bool bGrow)
-		: SessionManager<User>(service, nInitial, bGrow){}
+		: _generator(0), SessionManager<User>(service, nInitial, bGrow){}
 	
 public:
-	virtual void AddUserList(UserPtr pSession) override
+	virtual int insert_user(UserPtr ptr) override
 	{
-		m_liUserList.push_back(pSession);
+		int unique_number = generate_unique_number();
+		_map_User.insert({ unique_number, ptr }); // 일단은 ID 없으니까 ㅡ.ㅡ... 유저 구분하기 위해 아무 숫자나 준다
+		return unique_number;
 	}
+	void erase_user_map(int unique_number)
+	{
+		_map_User.erase(unique_number);
+	}
+
+	bool send(int user_no, SMsgSend msg)
+	{
+		const auto it = _map_User.find(user_no);
+		if (it == _map_User.end())
+			return false;
+
+		it->second->start_send(msg);
+	}
+
+
+	// -------------------------------------------------------------------------
 
 	virtual void BroadCast(UserPtr pSession, SMsgSend& msg) override
 	{
-		for (auto& Session : m_liUserList)
+		for (auto& Session : _map_User)
 		{
-			if (pSession == Session)
+			if (pSession == Session.second)
 				continue;
-			Session->start_send(msg);
+			Session.second->start_send(msg);
 		}
 	}
 	virtual void SendIsHost(UserPtr pSession)override
@@ -42,9 +62,17 @@ public:
 		pSession->start_send(msg);
 	}
 
-	int get_user_ptr(int user_no) { return 0; } // todo : 작업해야함.
 private:
-	std::list<UserPtr> m_liUserList;
-	// map<int, UserPtr> map_User;
+	int generate_unique_number()
+	{
+		_mutex.lock();
+		++_generator;
+		_mutex.unlock();
+		return _generator;
+	}
+	
+	mutex _mutex;
+	int _generator;
+	map<int, UserPtr> _map_User;
 };
 

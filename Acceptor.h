@@ -1,7 +1,7 @@
 #pragma once
 
 #include <asio.hpp>
-#include "SessionManager.h"
+#include "UserManager.h"
 
 class User;
 
@@ -10,7 +10,7 @@ template <class T> class Acceptor
 public:
 	using acceptor_type = typename T::protocol_type::acceptor;
 
-	Acceptor(asio::io_service& io_service, int nPort, SessionManager<User>* pSessionMgr)
+	Acceptor(asio::io_service& io_service, int nPort, UserMgrPtr pSessionMgr)
 		: m_acceptor(io_service, typename T::protocol_type::endpoint(typename T::protocol_type::v4(), nPort))
 		, m_socket(io_service)
 		, m_pSessionMgr(pSessionMgr)
@@ -41,6 +41,6 @@ public:
 private:
 	acceptor_type m_acceptor;
 	typename T::protocol_type::socket m_socket;
-	SessionManager<User>* m_pSessionMgr;
+	UserMgrPtr m_pSessionMgr;
 };
 

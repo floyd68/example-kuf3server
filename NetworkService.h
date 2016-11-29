@@ -12,7 +12,7 @@ public:
 	NetworkService(NetworkService& other) = delete;
 	NetworkService& operator = (NetworkService& other) = delete;
 
-	template <class T> std::shared_ptr<Acceptor<T>> new_acceptor(int nPort, SessionManager<User>* pSessionMgr)
+	template <class T> std::shared_ptr<Acceptor<T>> new_acceptor(int nPort, UserMgrPtr pSessionMgr)
 	{
 		auto acceptor = std::make_shared<Acceptor<T>>(m_io_service, nPort,pSessionMgr);
 		m_io_service.post([acceptor]() { acceptor->do_accept(); });

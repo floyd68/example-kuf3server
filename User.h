@@ -10,13 +10,15 @@ public:
 
 	typedef std::shared_ptr<Session<asio::ip::tcp>> SessionPtr;
 	void handle_net_msg(const SMsgRecv& msg) override;
-	void on_session_disconnected() override
-	{
-		m_pSessionMgr->on_session_disconnected(this->shared_from_this());
-	}
+	void on_session_disconnected() override;
+	void send(SMsgSend msg);
+
 private:
-	bool add_user();
+	void quit(const SMsgRecv& msg);
+	bool insert_user();
 	bool send_stage_info();
 	SessionManager<User>* m_pSessionMgr;
+
+	int _unique_number;
 };
 

@@ -4,24 +4,26 @@
 #include "PacketInfo.h"
 #include "kuf3packet_header.h"
 #include "stage_enemy_info.h"
-
+#include "UserManager.h"
 #include "resource_mgr.h" //test - DCAT
+#include "game_room_mgr.h"
 
-#define SEND(x) m_pSessionMgr->send(this->shared_from_this(), x);
-
-void User::handle_net_msg(const SMsgRecv& msg)
+void User::handle_net_msg(const SMsgRecv& recv)
 {
-	SMsgSend sendMsg = msg.ConvertSendMsg();
+	SMsgSend sendMsg = recv.ConvertSendMsg();
 
 	switch (static_cast<KUF3PACKET>(sendMsg.GetusID()))
 	{
 	case KUF3PACKET::C2S_LOGIN_AUTH_REQ:
-		add_user();
+		insert_user();
 		break;
 	case KUF3PACKET::C2S_READY_STAGE_REQ:
 		send_stage_info();
 		break;
 	case KUF3PACKET::C2S_START_STAGE_REQ:
+		break;
+	case KUF3PACKET::C2S_DISCONNECT_REQ:
+		quit(recv);
 		break;
 	default:
 		m_pSessionMgr->BroadCast(this->shared_from_this(), sendMsg);
@@ -29,25 +31,49 @@ void User::handle_net_msg(const SMsgRecv& msg)
 	}
 }
 
-bool User::add_user()
+void User::send(SMsgSend msg)
 {
-	m_pSessionMgr->AddUserList(this->shared_from_this());
+	m_pSessionMgr->send(this->shared_from_this(), msg);
+}
+
+void User::quit(const SMsgRecv& recv)
+{
+	int user_no;
+	recv >> user_no;
+
+	if (user_no != _unique_number)
+		return;
+
+	log_info("session : %d, unique_number : %d", this->shared_from_this(), _unique_number);
+	static_cast<UserManager*>(m_pSessionMgr)->erase_user_map(_unique_number);
+	_unique_number = -1;
+	set_active(false);
+
+	SMsgSend s(static_cast<unsigned short>(KUF3PACKET::S2C_DISCONNECT_RES));
+	send(s);
+}
+
+void User::on_session_disconnected()
+{
+	if (_unique_number != -1)
+	{
+		// 강제종료? -_-
+		static_cast<UserManager*>(m_pSessionMgr)->erase_user_map(_unique_number);
+	}
+	m_pSessionMgr->on_session_disconnected(this->shared_from_this());
+}
+
+bool User::insert_user()
+{
+	_unique_number = m_pSessionMgr->insert_user(this->shared_from_this());
 	SMsgSend msg(static_cast<unsigned short>(KUF3PACKET::S2C_LOGIN_AUTH_RES));
-	SEND(msg);
+	msg << _unique_number;
+	send(msg);
 	return true;
 }
 
 bool User::send_stage_info()
 {
-	SMsgSend msg(static_cast<unsigned short>(KUF3PACKET::S2C_READY_STAGE_RES));
-
-	//const auto& abc = xxx.get_date();
-
-	//msg << resource_mgr::getSingleton()->get_stage_info();
-
-
-
-
-	SEND(msg);
+	game_room_mgr::getSingleton()->creat_game_room(_unique_number);
 	return true;
 }

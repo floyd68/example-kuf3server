@@ -46,6 +46,7 @@ public:
 	
 	void on_session_disconnected(typename T::ptr session)
 	{
+		log_info("session : %d", session);
 		fprintf(stdout, "remove_session\n");
 
 		session->set_active(false);
@@ -59,7 +60,6 @@ public:
 		m_listSessionsInactive.push_back(session);
 	}
 
-	virtual void AddUserList(UserPtr session) = 0;
 	virtual void BroadCast(UserPtr, SMsgSend& msg) = 0;
 	//virtual void AddStatObjInfo(UserPtr, const SMsgRecv& msg) = 0;
 	virtual void SendIsHost(UserPtr pSession) = 0;
@@ -67,6 +67,9 @@ public:
 	std::list < typename T::ptr > m_listSessionsActive;
 	std::list < typename T::ptr > m_listSessionsInactive;
 
+	// ---------------------
+	map <int, typename T::ptr > _map_active_session;
+	virtual int insert_user(UserPtr ptr) = 0;
 protected:
 	std::recursive_mutex m_mutex;
 	bool m_bGrow;

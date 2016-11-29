@@ -58,17 +58,19 @@ public:
 				m_socket.get_io_service().post([this,length]()
 				{
 					m_netBuf.commit_recv(length);
-
-					while (m_netBuf.available_data() >= 4)
+					if (is_active())
 					{
-						fprintf(stdout, "Received %d\n", (int)length);
-						SMsgRecv msg(&m_netBuf);
+						while (m_netBuf.available_data() >= 4)
+						{
+							fprintf(stdout, "Received %d\n", (int)length);
+							SMsgRecv msg(&m_netBuf);
 
-						if (!msg.is_valid())
-							break;
+							if (!msg.is_valid())
+								break;
 
-						handle_net_msg(msg);
-						msg.done_msg();
+							handle_net_msg(msg);
+							msg.done_msg();
+						}
 					}
 					m_socket.get_io_service().post([this]() { start_receive(); });
 				});

@@ -30,7 +30,7 @@ public:
 	GameLogic() {}
 
 	NetworkService service;
-	UserManager* UserMgr;
+	UserMgrPtr UserMgr;
 
 public:
 	// by floyd
@@ -59,7 +59,7 @@ public:
 
 		fprintf(stdout, "Main Thread %s\n", ss.str().c_str());
 
-		UserMgr = new UserManager(service.get_io_service(), 100, true);
+		UserMgr = std::make_shared<UserManager>(service.get_io_service(), 100, true);
 
 		auto tcp_acceptor = service.new_acceptor<User>(9999, UserMgr);
 
@@ -77,7 +77,6 @@ public:
 		}
 
 		service.Join();
-		delete UserMgr;
 	}
 	void Destroy()
 	{
@@ -86,4 +85,8 @@ public:
 		//stage_enemy_info::getSingleton()->releaseSingleton();
 	}
 
+	void send(int user_no, SMsgSend msg)
+	{
+		UserMgr->send(user_no, msg);
+	}
 };
