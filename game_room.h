@@ -9,10 +9,10 @@ public:
 	
 	bool init();
 	bool join(const int user_no); // 유저 참여
-	void out(); // 유저가 종료하거나 접속 끊겼을때 호출 해야 함.
+	void out(const int user_no); // 유저가 종료하거나 접속 끊겼을때 호출 해야 함.
 	void update(const unsigned long tick);
 
 private:
-	vector<int> _vec_user;
+	vector<int> vec_user;
 };
 

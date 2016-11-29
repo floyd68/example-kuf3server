@@ -18,11 +18,17 @@ bool game_room::init()
 
 bool game_room::join(const int user_no)
 {
-	return false;
+	vec_user.push_back(user_no);
+	return true;
 }
 
-void game_room::out()
+void game_room::out(const int user_no)
 {
+	auto it = find(vec_user.begin(), vec_user.end(), user_no);
+	if (vec_user.end() == it)
+		return;
+
+	vec_user.erase(it);
 }
 
 void game_room::update(const unsigned long tick)
