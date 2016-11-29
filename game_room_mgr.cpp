@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "game_room_mgr.h"
+#include "svr_logger.h"
 
 
 game_room_mgr::game_room_mgr()
@@ -13,6 +14,7 @@ game_room_mgr::~game_room_mgr()
 
 void game_room_mgr::creat_game_room(const int user_no)
 {
+
 }
 
 bool game_room_mgr::join(const int user_no, const int room_no)
@@ -28,7 +30,7 @@ bool game_room_mgr::join(const int user_no, const int room_no)
 	}
 	catch (const out_of_range& e)
 	{
-		//todo 에러를 로그로 남길 것
+		log_error("room is not exist");
 		return false;
 	}
 
@@ -49,7 +51,7 @@ void game_room_mgr::out(const int user_no, const int room_no)
 	}
 	catch (const out_of_range& e)
 	{
-		//todo 에러를 로그로 남길 것
+		log_error("room is not exist");
 		return;
 	}
 

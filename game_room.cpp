@@ -2,8 +2,9 @@
 #include "game_room.h"
 
 
-game_room::game_room(int user_no)
+game_room::game_room(const int user_no) : stage_no(0), wave_no(0)
 {
+	join(user_no);
 }
 
 

@@ -14,5 +14,8 @@ public:
 
 private:
 	vector<int> vec_user;
+
+	unsigned int stage_no;
+	unsigned int wave_no;
 };
 
