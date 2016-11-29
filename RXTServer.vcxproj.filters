@@ -30,11 +30,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserManager.h" />
-    <ClInclude Include="component_base.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="entity_factory.h" />
-    <ClInclude Include="entity.h" />
     <ClInclude Include="obj_mgr.h" />
     <ClInclude Include="resource_mgr.h" />
     <ClInclude Include="game_room_mgr.h" />
@@ -42,10 +38,5 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Component">
-      <UniqueIdentifier>{e0af93f2-2270-4185-b790-4ab53dffca24}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>

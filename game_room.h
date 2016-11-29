@@ -12,6 +12,8 @@ public:
 	void out(const int user_no); // 유저가 종료하거나 접속 끊겼을때 호출 해야 함.
 	void update(const unsigned long tick);
 
+	void send_stage_info();
+
 private:
 	vector<int> vec_user;
 

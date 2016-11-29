@@ -154,9 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="component_base.h" />
     <ClInclude Include="data_mgr.h" />
-    <ClInclude Include="entity.h" />
     <ClInclude Include="entity_factory.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="game_room.h" />
