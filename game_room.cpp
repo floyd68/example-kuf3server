@@ -64,9 +64,7 @@ void game_room::send_stage_info()
 		 
 		if (entityTypeIter != s_mapEntityTypeTable.end())
 		{
-			ENTITY_TYPE eType = entityTypeIter->second;
-
-			msg << entityTypeIter->second << Point.x << Point.y;
+			msg << strName << Point.x << Point.y; //test 일단 엔티티타입 스트링으로 보내봄.
 		}
 	}
 
