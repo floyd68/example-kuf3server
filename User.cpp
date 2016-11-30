@@ -67,7 +67,8 @@ bool User::insert_user()
 {
 	_unique_number = m_pSessionMgr->insert_user(this->shared_from_this());
 	SMsgSend msg(static_cast<unsigned short>(KUF3PACKET::S2C_LOGIN_AUTH_RES));
-	msg << _unique_number;
+	msg << _unique_number << D2D1::Point2F(static_cast<float>(WIN_SIZE_X >> 1), static_cast<float>(WIN_SIZE_Y >> 1)); 
+	//todo 플레이어 시작위치는 일단 중앙에 줌. (추후 플레이어 시작위치 고민해볼 것)
 	send(msg);
 	return true;
 }
