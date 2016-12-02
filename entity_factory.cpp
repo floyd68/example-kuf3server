@@ -2,7 +2,8 @@
 #include "entity_factory.h"
 #include "obj_mgr.h"
 
-//#include "EntityFactory.h"
+#include "ai_component.h"
+
 //#include "PositionComponent.h"
 //#include "RenderComponent.h"
 //#include "ColliderComponent.h"
@@ -26,48 +27,12 @@ typedef CompPtr(*CompCreatorfunc)(EntityPtr, const dynamic&);
 
 static std::map <std::string, CompCreatorfunc> s_mapCompCreator =
 {
-	//{ "COM_POS", COMP(CPositionComponent) },
-	//{ "COM_STATPLAYER", COMP(CStatPlayerComponent) },
-	//{ "COM_STATENEMY", COMP(CStatEnemyComponent) },
-	//{ "COM_RENDER", COMP(CRenderComponent) },
-	//{ "COM_COLLIDER", COMP(CColliderComponent) },
-	//{ "COM_PLAYERATTACKBOX", COMP(CAttackBoxComponent) },
-	//{ "COM_ENEMYATTACKBOX", COMP(CAttackBoxComponent) },
-	//{ "COM_ATTACK", COMP(CAttackComponent) },
-	//{ "COM_INPUT", COMP(CInputComponent) },
-	//{ "COM_CREATE", COMP(CCreateComponent) },
-	//{ "COM_AI", COMP(CAIComponent) },
-	//{ "COM_WARNINGBOX", COMP(CWarningBoxComponent) },
-	//{ "COM_GUAGE", COMP(CGuageComponent) },
-	//{ "COM_ITEM", COMP(CItemComponent) },
-	//{ "COM_CURSOR", COMP(CCursorComponent) },
+	{ "COM_AI", COMP(ai_component) },
 };
 //-----------------------------------------------------------------------------------------------------------
 static std::map<std::string, OBJ_TYPE> s_mapEntityObjTypeTable =
 {
-	{ "Player", OBJ_TYPE::OBJ_PLAYER },
-	{ "OtherPlayer", OBJ_TYPE::OBJ_PLAYER },
 	{ "Bat", OBJ_TYPE::OBJ_ENEMY },
-	{ "Skeleton", OBJ_TYPE::OBJ_ENEMY },
-	{ "Zombi", OBJ_TYPE::OBJ_ENEMY },
-	{ "Ghost", OBJ_TYPE::OBJ_ENEMY },
-	{ "Mushroom", OBJ_TYPE::OBJ_ENEMY },
-	{ "Mage", OBJ_TYPE::OBJ_ENEMY },
-	{ "Goblin", OBJ_TYPE::OBJ_ENEMY },
-	{ "Minota", OBJ_TYPE::OBJ_ENEMY },
-	{ "Dragon", OBJ_TYPE::OBJ_ENEMY },
-	{ "PlayerAttackBox", OBJ_TYPE::OBJ_PLAYERATTACKBOX },
-	{ "PlayerEnemyBox", OBJ_TYPE::OBJ_ENEMYATTACKBOX },
-	{ "WarningBox", OBJ_TYPE::OBJ_WARNINGBOX },
-	{ "SpeedItem", OBJ_TYPE::OBJ_ITEM },
-	{ "HpItem", OBJ_TYPE::OBJ_ITEM },
-	{ "AttItem", OBJ_TYPE::OBJ_ITEM },
-	{ "TriCellItem", OBJ_TYPE::OBJ_ITEM },
-	{ "FourCellItem", OBJ_TYPE::OBJ_ITEM },
-	{ "RapierItem", OBJ_TYPE::OBJ_ITEM },
-	{ "ShotGunItem", OBJ_TYPE::OBJ_ITEM },
-	{ "RifleItem", OBJ_TYPE::OBJ_ITEM },
-	{ "Cursor", OBJ_TYPE::OBJ_CURSOR },
 };
 //-----------------------------------------------------------------------------------------------------------
 static std::map<std::string, dynamic> s_EntityStrAttrTable =

@@ -10,7 +10,7 @@ public:
 	~load_json_files();
 
 	virtual bool load();
-	bool create_component(const wchar_t* file_name);
+	bool load_component_info(const wchar_t* file_name);
 };
 
 #define CONV_RENDER_VALUE(t) 

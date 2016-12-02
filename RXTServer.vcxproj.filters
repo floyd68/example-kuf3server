@@ -1,42 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="data_mgr.cpp" />
     <ClCompile Include="GameLogic.cpp" />
-    <ClCompile Include="load_json_files.cpp" />
     <ClCompile Include="RXTServer.cpp" />
-    <ClCompile Include="stage_enemy_info.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="svr_logger.cpp" />
-    <ClCompile Include="User.cpp" />
     <ClCompile Include="entity_factory.cpp" />
     <ClCompile Include="obj_mgr.cpp" />
-    <ClCompile Include="resource_mgr.cpp" />
-    <ClCompile Include="game_room_mgr.cpp" />
-    <ClCompile Include="game_room.cpp" />
+    <ClCompile Include="game_room.cpp">
+      <Filter>game_room</Filter>
+    </ClCompile>
+    <ClCompile Include="game_room_mgr.cpp">
+      <Filter>game_room</Filter>
+    </ClCompile>
+    <ClCompile Include="ai_component.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+    <ClCompile Include="resource_mgr.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="load_json_files.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="stage_enemy_info.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>user</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="data_mgr.h" />
     <ClInclude Include="GameLogic.h" />
-    <ClInclude Include="load_json_files.h" />
-    <ClInclude Include="NetworkService.h" />
-    <ClInclude Include="PacketInfo.h" />
-    <ClInclude Include="Session.h" />
-    <ClInclude Include="SessionManager.h" />
-    <ClInclude Include="stage_enemy_info.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="svr_logger.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="User.h" />
-    <ClInclude Include="UserManager.h" />
     <ClInclude Include="entity_factory.h" />
     <ClInclude Include="obj_mgr.h" />
-    <ClInclude Include="resource_mgr.h" />
-    <ClInclude Include="game_room_mgr.h" />
-    <ClInclude Include="game_room.h" />
+    <ClInclude Include="game_room.h">
+      <Filter>game_room</Filter>
+    </ClInclude>
+    <ClInclude Include="game_room_mgr.h">
+      <Filter>game_room</Filter>
+    </ClInclude>
+    <ClInclude Include="ai_component.h">
+      <Filter>component</Filter>
+    </ClInclude>
+    <ClInclude Include="Acceptor.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkService.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketInfo.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionManager.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="resource_mgr.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="load_json_files.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="stage_enemy_info.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>user</Filter>
+    </ClInclude>
+    <ClInclude Include="UserManager.h">
+      <Filter>user</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="game_room">
+      <UniqueIdentifier>{0ab9b355-6928-4a61-9ae2-4fb5d95d8934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="component">
+      <UniqueIdentifier>{6a304aa8-64ae-44f7-9003-af7507efa85e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{8b3daaf5-873d-4572-9f44-17389ad245cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{307620a5-d0d5-472d-ac72-1f714e11efc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="user">
+      <UniqueIdentifier>{dd0f7545-f8f2-45a9-aba4-06d70b994990}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

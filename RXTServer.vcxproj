@@ -89,13 +89,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);ASIO_STANDALONE</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>asio-1.11.0\include;..\example-common\boost_1_61_0;..\example-common\kuf3common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>asio-1.11.0\include;..\example-common\boost_1_61_0;..\example-common\kuf3common;..\example-common\kuf3common\lua\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kuf3common.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kuf3common.lib;lua53.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);..\example-common\kuf3common\lua</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="data_mgr.h" />
+    <ClInclude Include="ai_component.h" />
     <ClInclude Include="entity_factory.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="game_room.h" />
@@ -174,7 +174,7 @@
     <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="data_mgr.cpp" />
+    <ClCompile Include="ai_component.cpp" />
     <ClCompile Include="entity_factory.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="game_room.cpp" />
